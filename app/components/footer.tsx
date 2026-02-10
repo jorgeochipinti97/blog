@@ -35,19 +35,6 @@ export default function Footer({ lang }: { lang: Lang }) {
               className="group flex items-center gap-2 text-neutral-500 hover:text-emerald-400 transition-colors duration-300"
               rel="noopener noreferrer"
               target="_blank"
-              href={withLang(lang, '/rss')}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/40 group-hover:bg-emerald-400 transition-colors duration-300" />
-              {t.footer.rss}
-              <ArrowIcon />
-            </a>
-          </li>
-
-          <li>
-            <a
-              className="group flex items-center gap-2 text-neutral-500 hover:text-emerald-400 transition-colors duration-300"
-              rel="noopener noreferrer"
-              target="_blank"
               href={site.links.github}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/40 group-hover:bg-emerald-400 transition-colors duration-300" />
