@@ -1,11 +1,14 @@
 import fs from 'fs'
 import path from 'path'
 
+import { isLang, languages, type Lang } from 'app/i18n'
+
 type Metadata = {
   title: string
   publishedAt: string
   summary: string
   image?: string
+  lang?: Lang
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -20,7 +23,16 @@ function parseFrontmatter(fileContent: string) {
     let [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+
+    let k = key.trim() as keyof Metadata
+    if (k === 'lang') {
+      if (isLang(value)) {
+        metadata.lang = value
+      }
+      return
+    }
+
+    metadata[k] = value as Metadata[typeof k]
   })
 
   return { metadata: metadata as Metadata, content }
@@ -49,11 +61,42 @@ function getMDXData(dir) {
   })
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+export type BlogPost = {
+  metadata: Metadata
+  slug: string
+  content: string
 }
 
-export function formatDate(date: string, includeRelative = false) {
+export function getPostLang(post: Pick<BlogPost, 'metadata' | 'slug'>) {
+  let metaLang = post.metadata.lang
+  if (metaLang && languages.includes(metaLang)) {
+    return metaLang
+  }
+
+  if (post.slug.endsWith('-es')) return 'es'
+  if (post.slug.endsWith('-en')) return 'en'
+
+  return undefined
+}
+
+export function getPostVisibleLangs(post: Pick<BlogPost, 'metadata' | 'slug'>) {
+  let postLang = getPostLang(post)
+  return postLang ? [postLang] : [...languages]
+}
+
+export function getBlogPosts(lang?: Lang): BlogPost[] {
+  let posts = getMDXData(
+    path.join(process.cwd(), 'app', 'blog', 'posts')
+  ) as BlogPost[]
+
+  if (!lang) {
+    return posts
+  }
+
+  return posts.filter((post) => getPostVisibleLangs(post).includes(lang))
+}
+
+export function formatDate(date: string, lang: Lang, includeRelative = false) {
   let currentDate = new Date()
   if (!date.includes('T')) {
     date = `${date}T00:00:00`
@@ -67,16 +110,18 @@ export function formatDate(date: string, includeRelative = false) {
   let formattedDate = ''
 
   if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
+    formattedDate =
+      lang === 'es' ? `hace ${yearsAgo} año${yearsAgo === 1 ? '' : 's'}` : `${yearsAgo}y ago`
   } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
+    formattedDate =
+      lang === 'es' ? `hace ${monthsAgo} mes${monthsAgo === 1 ? '' : 'es'}` : `${monthsAgo}mo ago`
   } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
+    formattedDate = lang === 'es' ? `hace ${daysAgo} día${daysAgo === 1 ? '' : 's'}` : `${daysAgo}d ago`
   } else {
-    formattedDate = 'Today'
+    formattedDate = lang === 'es' ? 'Hoy' : 'Today'
   }
 
-  let fullDate = targetDate.toLocaleString('en-us', {
+  let fullDate = targetDate.toLocaleString(lang === 'es' ? 'es-AR' : 'en-US', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',

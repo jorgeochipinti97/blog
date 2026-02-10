@@ -4,6 +4,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
 
+import { TwitterEmbed } from './TwitterEmbed'
+
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
@@ -97,6 +99,7 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
+  Tweet: TwitterEmbed,
 }
 
 export function CustomMDX(props) {
