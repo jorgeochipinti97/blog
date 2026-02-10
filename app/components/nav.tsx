@@ -15,6 +15,32 @@ import {
 import { site } from 'app/site'
 
 export function Navbar() {
+  return (
+    <React.Suspense fallback={<NavbarSkeleton />}>
+      <NavbarContent />
+    </React.Suspense>
+  )
+}
+
+function NavbarSkeleton() {
+  return (
+    <aside className="animate-enter-up mb-12 sm:mb-16 tracking-tight relative z-50">
+      <div className="lg:sticky lg:top-6">
+        <nav
+          className="glass-card noise-overlay flex flex-row items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3"
+          id="nav"
+        >
+          <div className="flex flex-row items-center gap-1">
+            <div className="h-8 w-32 bg-white/5 rounded animate-pulse" />
+          </div>
+          <div className="h-8 w-20 bg-white/5 rounded-full animate-pulse" />
+        </nav>
+      </div>
+    </aside>
+  )
+}
+
+function NavbarContent() {
   let router = useRouter()
   let pathname = usePathname() || '/'
   let searchParams = useSearchParams()
@@ -175,3 +201,5 @@ function NavLink({
     </Link>
   )
 }
+
+export { NavbarContent }
