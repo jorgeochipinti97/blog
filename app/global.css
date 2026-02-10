@@ -55,17 +55,28 @@ html {
   /* Make route changes (lang switch) feel premium.
      Works only where View Transitions are supported. */
   view-transition-name: root;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 @keyframes enter-up {
   from {
     opacity: 0;
     transform: translateY(10px);
+    -webkit-filter: blur(10px);
     filter: blur(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0px);
+    -webkit-filter: blur(0px);
     filter: blur(0px);
   }
 }
@@ -265,8 +276,11 @@ table {
     rgba(255, 255, 255, 0.05) 0%,
     rgba(255, 255, 255, 0.02) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* Safari/iOS support */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  /* Fallback for browsers that don't support backdrop-filter */
+  background-color: rgba(7, 7, 10, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   position: relative;

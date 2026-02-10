@@ -30,29 +30,35 @@ export function AuroraBackground({
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute inset-x-0 -top-40 h-[700px] overflow-visible z-0 ${className}`}
+      className={`pointer-events-none absolute inset-x-0 -top-40 h-[700px] overflow-hidden z-0 ${className}`}
     >
       {/* Primary emerald orb - top left */}
       <div
-        className="absolute top-0 left-[10%] w-[600px] h-[400px] rounded-full blur-[100px]"
+        className="absolute top-0 left-[5%] w-[min(600px,80vw)] h-[400px] rounded-full blur-[100px]"
         style={{
-          background: `radial-gradient(ellipse at center, rgba(16,185,129,${primary}) 0%, transparent 70%)`
+          background: `radial-gradient(ellipse at center, rgba(16,185,129,${primary}) 0%, transparent 70%)`,
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden',
         }}
       />
 
       {/* Secondary orb - top right */}
       <div
-        className="absolute top-[10%] right-[5%] w-[500px] h-[350px] rounded-full blur-[120px]"
+        className="absolute top-[10%] right-[5%] w-[min(500px,70vw)] h-[350px] rounded-full blur-[120px]"
         style={{
-          background: `radial-gradient(ellipse at center, rgba(52,211,153,${secondary}) 0%, transparent 65%)`
+          background: `radial-gradient(ellipse at center, rgba(52,211,153,${secondary}) 0%, transparent 65%)`,
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden',
         }}
       />
 
       {/* Tertiary orb - center bottom, subtle */}
       <div
-        className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full blur-[140px]"
+        className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[min(700px,90vw)] h-[300px] rounded-full blur-[140px]"
         style={{
-          background: `radial-gradient(ellipse at center, rgba(110,231,183,${tertiary}) 0%, transparent 60%)`
+          background: `radial-gradient(ellipse at center, rgba(110,231,183,${tertiary}) 0%, transparent 60%)`,
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden',
         }}
       />
     </div>
