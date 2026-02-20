@@ -119,6 +119,11 @@ Last updated: 2026-02-10
 - TypeScript
 - MDX para contenido
 
+## Último progreso
+
+- Corregido título Diario Canning → "sistema biométrico" (antes decía "biomotricidad")
+- Agregada nota de Filo News (Vibra Music) debajo de Forbes en press-mentions
+
 ## Próximos Pasos
 
 - Verificar que mobile fixes funcionen en Safari/Instagram browser

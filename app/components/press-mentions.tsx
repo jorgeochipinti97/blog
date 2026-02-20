@@ -3,13 +3,18 @@ import { type Lang, messages } from 'app/i18n'
 export const pressItems = [
   {
     outlet: 'Diario Canning',
-    title: 'Diario Canning estrenó el sistema de biomotricidad para el control del juego',
+    title: 'Diario Canning estrenó sistema biométrico para el control del juego',
     url: 'https://www.diariocanning.com/deportes/diario-canning-estreno-el-sistema-de-biomotricidad-para-el-control-del-juego',
   },
   {
     outlet: 'Forbes Argentina',
     title: 'De Bizarrap a tu propio tune: cómo tres argentinos crearon Vibra Music para democratizar la creación y producción musical con IA',
     url: 'https://www.forbesargentina.com/daily-cover/de-bizzarap-tu-propio-tune-como-tres-argentinos-crearon-vibra-music-democratizar-creacion-produccion-musical-ia-n62617',
+  },
+  {
+    outlet: 'Filo News',
+    title: 'Conocé Vibra Music, el ecosistema musical pensado para conectar productores y artistas',
+    url: 'https://www.filo.news/noticia/2024/11/13/conoce-vibra-music-el-ecosistema-musical-pensado-para-conectar-productores-y-artistas',
   },
   {
     outlet: 'Billboard Argentina',
