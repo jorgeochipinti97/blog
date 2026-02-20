@@ -12,14 +12,14 @@ export const pressItems = [
     url: 'https://www.forbesargentina.com/daily-cover/de-bizzarap-tu-propio-tune-como-tres-argentinos-crearon-vibra-music-democratizar-creacion-produccion-musical-ia-n62617',
   },
   {
-    outlet: 'Filo News',
-    title: 'Conocé Vibra Music, el ecosistema musical pensado para conectar productores y artistas',
-    url: 'https://www.filo.news/noticia/2024/11/13/conoce-vibra-music-el-ecosistema-musical-pensado-para-conectar-productores-y-artistas',
-  },
-  {
     outlet: 'Billboard Argentina',
     title: 'Vibra Music: la plataforma creada para productores y artistas que busca revolucionar el mercado',
     url: 'https://billboard.ar/industria/vibra-music-la-plataforma-creada-para-productores-y-artistas-que-busca-revolucionar-el-mercado/',
+  },
+  {
+    outlet: 'Filo News',
+    title: 'Conocé Vibra Music, el ecosistema musical pensado para conectar productores y artistas',
+    url: 'https://www.filo.news/noticia/2024/11/13/conoce-vibra-music-el-ecosistema-musical-pensado-para-conectar-productores-y-artistas',
   },
 ]
 

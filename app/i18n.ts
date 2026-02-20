@@ -38,7 +38,7 @@ export const messages = {
       press: 'Press',
       readArticle: 'Read article',
       portfolio: 'Active Portfolio',
-      onfit: 'Onfit',
+      onfit: 'On Fit',
       aduesSport: 'Adues Sport',
     },
     blog: {
@@ -66,7 +66,7 @@ export const messages = {
       press: 'En Prensa',
       readArticle: 'Leer artículo',
       portfolio: 'Portfolio Activo',
-      onfit: 'Onfit',
+      onfit: 'On Fit',
       aduesSport: 'Adues Sport',
     },
     blog: {
