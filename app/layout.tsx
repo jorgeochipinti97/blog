@@ -1,6 +1,7 @@
 import './global.css'
 
 import { fonts, cx } from 'app/fonts'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function RootLayout({
   children,
@@ -19,6 +20,7 @@ export default function RootLayout({
     >
       <body className="antialiased mx-auto flex min-h-svh w-full max-w-xl flex-col px-4 pt-8 sm:px-6">
         {children}
+        <Analytics />
       </body>
     </html>
   )
