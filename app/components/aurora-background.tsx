@@ -30,7 +30,7 @@ export function AuroraBackground({
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute inset-x-0 -top-40 h-[700px] overflow-hidden z-0 ${className}`}
+      className={`pointer-events-none absolute inset-x-0 -top-40 h-[900px] overflow-hidden z-0 ${className}`}
     >
       {/* Primary emerald orb - top left */}
       <div

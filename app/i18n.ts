@@ -38,8 +38,10 @@ export const messages = {
       press: 'Press',
       readArticle: 'Read article',
       portfolio: 'Active Portfolio',
+      live: 'Live',
       onfit: 'On Fit',
       aduesSport: 'Adues Sport',
+      rumen360: 'Rumen360',
     },
     blog: {
       title: 'My Blog',
@@ -66,8 +68,10 @@ export const messages = {
       press: 'En Prensa',
       readArticle: 'Leer artículo',
       portfolio: 'Portfolio Activo',
+      live: 'Activo',
       onfit: 'On Fit',
       aduesSport: 'Adues Sport',
+      rumen360: 'Rumen360',
     },
     blog: {
       title: 'Blog',
