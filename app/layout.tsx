@@ -18,7 +18,7 @@ export default function RootLayout({
         fonts.mono.variable
       )}
     >
-      <body className="antialiased mx-auto flex min-h-svh w-full max-w-xl flex-col px-4 pt-8 sm:px-6">
+      <body className="antialiased mx-auto flex min-h-svh w-full max-w-2xl flex-col px-4 pt-8 sm:px-6 lg:px-8">
         {children}
         <Analytics />
       </body>

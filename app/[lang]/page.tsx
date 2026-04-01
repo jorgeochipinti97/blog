@@ -35,15 +35,21 @@ export default async function Page({
           style={{ animationDelay: '60ms' }}
         />
         <p
-          className="animate-enter-up mt-4 text-xs tracking-[0.3em] uppercase text-neutral-500"
+          className="animate-enter-up mt-4 text-sm tracking-[0.25em] uppercase text-neutral-400"
           style={{ animationDelay: '80ms' }}
         >
           {t.home.intro}
         </p>
+        <p
+          className="animate-enter-up mt-5 text-sm sm:text-base leading-relaxed text-neutral-400 max-w-sm"
+          style={{ animationDelay: '120ms' }}
+        >
+          {t.home.bio}
+        </p>
       </header>
 
       {/* Press Mentions */}
-      <div className="relative z-10 animate-enter-up mb-16 sm:mb-20" style={{ animationDelay: '120ms' }}>
+      <div className="relative z-10 animate-enter-up mb-16 sm:mb-20" style={{ animationDelay: '160ms' }}>
         <div className="mb-5 flex items-center gap-3">
           <div className="h-px w-8 bg-gradient-to-r from-emerald-500 to-transparent" />
           <h2 className="text-xs font-medium tracking-[0.2em] text-emerald-400/80 uppercase">
@@ -109,6 +115,7 @@ export default async function Page({
                   </span>
                 </div>
                 <p className="mt-1.5 text-xs text-neutral-500">onfit.com.ar</p>
+                <p className="mt-2 text-xs text-neutral-600">{t.home.onFitDesc}</p>
               </div>
             </article>
           </a>
@@ -131,6 +138,7 @@ export default async function Page({
                   </span>
                 </div>
                 <p className="mt-1.5 text-xs text-neutral-500">sport.adues.org.ar</p>
+                <p className="mt-2 text-xs text-neutral-600">{t.home.aduesSportDesc}</p>
               </div>
             </article>
           </a>
@@ -142,7 +150,7 @@ export default async function Page({
         <div className="mb-6 flex items-center gap-3">
           <div className="h-px w-8 bg-gradient-to-r from-emerald-500 to-transparent" />
           <h2 className="text-xs font-medium tracking-[0.2em] text-emerald-400/80 uppercase">
-            {lang === 'es' ? 'Artículos Recientes' : 'Recent Posts'}
+            {t.home.recentPosts}
           </h2>
         </div>
         <BlogPosts lang={lang} />

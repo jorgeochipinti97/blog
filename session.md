@@ -6,17 +6,19 @@ In progress
 
 ## Current task
 
-Homepage redesign - premium editorial style
+Premium UX review applied end-to-end
 
-## Last progress
+## Last progress (premium-frontend-design review pass)
 
-- Hero: bumped to text-5xl/6xl with `text-gradient-emerald`, spaced uppercase tagline, emerald accent line
-- Portfolio: converted to 2-column grid with domain hints (onfit.com.ar, sport.adues.org.ar) and animated LIVE badge
-- Section spacing: increased to mb-16 sm:mb-20, all section labels now use consistent left-aligned emerald line style
-- i18n: added `live` / `Activo` translations
-- Press: kept original stacked-card style per user preference
-- Aurora background: increased height from 700px to 900px to cover expanded layout
-- Removed unused TwitterEmbed import
+- Container: max-w-xl → max-w-2xl + lg:px-8 for more breathing room
+- Hero tagline: text-xs/text-neutral-500 → text-sm/text-neutral-400 (more visible)
+- Hero bio: new line added in i18n (en + es) — "Builder. I make software for agro, fitness, and music."
+- Portfolio cards: added descriptions to OnFit and ADUES Sport via i18n
+- Blog cards: fixed inverted title/date order (removed sm:order-2 on title, date now always after title)
+- i18n: added `bio`, `onFitDesc`, `aduesSportDesc`, `recentPosts` keys to both langs
+- i18n: "My Blog" → "Writing" (en), blog page label now uses `t.blog.title` (no hardcode)
+- i18n: "Recent Posts" / "Artículos Recientes" now from i18n key (no hardcode in page.tsx)
+- Footer: removed duplicate GitHub link (already in nav)
 - Build passes clean
 
 ## Next steps
@@ -24,9 +26,8 @@ Homepage redesign - premium editorial style
 1. Visual review on localhost (en + es)
 2. Mobile responsiveness check
 3. Commit and deploy when satisfied
-4. (Done) Added Rumen360 card to portfolio grid
 
 ## Notes
 
-- Files modified: `app/[lang]/page.tsx`, `app/components/press-mentions.tsx`, `app/components/aurora-background.tsx`, `app/i18n.ts`
-- User prefers the original press card layout (stacked, with previews) — reverted compact inline row
+- Files modified: `app/layout.tsx`, `app/i18n.ts`, `app/[lang]/page.tsx`, `app/[lang]/blog/page.tsx`, `app/components/posts.tsx`, `app/components/footer.tsx`
+- User prefers the original press card layout (stacked, with previews) — kept as-is

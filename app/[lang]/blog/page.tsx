@@ -48,7 +48,7 @@ export default async function Page({
         >
           <div className="h-px w-6 sm:w-8 bg-gradient-to-r from-emerald-500 to-transparent" />
           <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] text-emerald-400/80 uppercase">
-            {lang === 'es' ? 'Artículos' : 'Articles'}
+            {t.blog.title}
           </span>
         </div>
 

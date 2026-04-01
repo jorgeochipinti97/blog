@@ -27,15 +27,15 @@ export function BlogPosts({ lang }: { lang: Lang }) {
               <div className="absolute top-0 left-4 right-4 sm:left-6 sm:right-6 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative flex flex-col gap-2 sm:gap-3 sm:flex-row sm:items-center sm:justify-between">
-                {/* Title - always first on mobile */}
-                <h3 className="text-sm sm:text-base lg:text-lg font-medium tracking-tight text-neutral-100 group-hover:text-white transition-colors duration-300 sm:order-2 sm:text-right sm:flex-1">
+                {/* Title */}
+                <h3 className="text-sm sm:text-base lg:text-lg font-medium tracking-tight text-neutral-100 group-hover:text-white transition-colors duration-300 sm:flex-1">
                   <span className="link-underline">
                     {post.metadata.title}
                   </span>
                 </h3>
 
                 {/* Date with emerald accent */}
-                <div className="flex items-center gap-2 sm:gap-3 sm:order-1 sm:flex-shrink-0">
+                <div className="flex items-center gap-2 sm:gap-3 sm:flex-shrink-0">
                   <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-emerald-500/60 group-hover:bg-emerald-400 transition-colors duration-300 group-hover:shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
                   <time className="text-xs sm:text-sm tabular-nums text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300">
                     {formatDate(post.metadata.publishedAt, lang, false)}
@@ -43,46 +43,6 @@ export function BlogPosts({ lang }: { lang: Lang }) {
                 </div>
               </div>
 
-              {/* Summary - hidden on mobile, shown on hover for larger screens */}
-              {post.metadata.summary && (
-                <p className="hidden sm:block mt-3 text-sm text-neutral-400 leading-relaxed line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-h-0 group-hover:max-h-20 overflow-hidden">
-                  {post.metadata.summary}
-                </p>
-              )}
-
-              {/* Hover indicator - hidden on mobile */}
-              <div className="hidden sm:block absolute bottom-4 right-5 lg:right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                <svg
-                  className="w-4 h-4 text-emerald-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
-
-              {/* Mobile tap indicator */}
-              <div className="sm:hidden absolute top-1/2 -translate-y-1/2 right-4 text-neutral-600 group-active:text-emerald-400 transition-colors">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
             </article>
           </Link>
         ))}
