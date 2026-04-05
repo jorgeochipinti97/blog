@@ -79,7 +79,7 @@ export default async function Page({
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10 sm:flex sm:items-center sm:justify-between">
                 <div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between sm:justify-start sm:gap-3">
                     <span className="text-base sm:text-lg font-semibold text-neutral-200 group-hover:text-white transition-colors duration-300">
                       {t.home.rumen360}
                     </span>
