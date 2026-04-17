@@ -59,63 +59,29 @@ export default async function Page({
         <PressMentions lang={lang} />
       </div>
 
-      {/* Portfolio */}
+      {/* Projects — where I'm a partner/co-builder */}
       <div className="relative z-10 animate-enter-up mb-16 sm:mb-20" style={{ animationDelay: '200ms' }}>
         <div className="mb-5 flex items-center gap-3">
-          <div className="h-px w-8 bg-gradient-to-r from-emerald-500 to-transparent" />
-          <h2 className="text-xs font-medium tracking-[0.2em] text-emerald-400/80 uppercase">
-            {t.home.portfolio}
+          <div className="h-px w-8 bg-gradient-to-r from-sky-500 to-transparent" />
+          <h2 className="text-xs font-medium tracking-[0.2em] text-sky-400/80 uppercase">
+            {t.home.projects}
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {/* Rumen360 — featured, full-width on desktop */}
           <a
             href="https://www.rumen360.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group block sm:col-span-2"
-          >
-            <article className="glass-card noise-overlay relative p-5 sm:p-6 transition-all duration-500 ease-out group-hover:border-emerald-500/20">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="relative z-10 sm:flex sm:items-center sm:justify-between">
-                <div>
-                  <div className="flex items-center justify-between sm:justify-start sm:gap-3">
-                    <span className="text-base sm:text-lg font-semibold text-neutral-200 group-hover:text-white transition-colors duration-300">
-                      {t.home.rumen360}
-                    </span>
-                    <span className="flex items-center gap-1.5 text-[10px] font-medium tracking-wide text-emerald-400/70 uppercase">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
-                      {t.home.live}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-xs text-neutral-500">rumen360.com</p>
-                </div>
-                <p className="mt-2 sm:mt-0 text-xs text-neutral-500 sm:text-right">
-                  {lang === 'es' ? 'Software de gestión ganadera' : 'Cattle management software'}
-                </p>
-              </div>
-            </article>
-          </a>
-          <a
-            href="https://onfit.com.ar"
-            target="_blank"
-            rel="noopener noreferrer"
             className="group block"
           >
-            <article className="glass-card noise-overlay relative p-4 sm:p-5 transition-all duration-500 ease-out group-hover:border-emerald-500/20">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <article className="glass-card noise-overlay relative p-4 sm:p-5 transition-all duration-500 ease-out group-hover:border-sky-500/20">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm sm:text-base font-medium text-neutral-200 group-hover:text-white transition-colors duration-300">
-                    {t.home.onfit}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-[10px] font-medium tracking-wide text-emerald-400/70 uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
-                    {t.home.live}
-                  </span>
-                </div>
-                <p className="mt-1.5 text-xs text-neutral-500">onfit.com.ar</p>
-                <p className="mt-2 text-xs text-neutral-600">{t.home.onFitDesc}</p>
+                <span className="block text-sm sm:text-base font-medium text-neutral-200 group-hover:text-white transition-colors duration-300">
+                  {t.home.rumen360}
+                </span>
+                <p className="mt-1.5 text-xs text-neutral-500">rumen360.com</p>
+                <p className="mt-2 text-xs text-neutral-600">{t.home.rumen360Desc}</p>
               </div>
             </article>
           </a>
@@ -125,18 +91,12 @@ export default async function Page({
             rel="noopener noreferrer"
             className="group block"
           >
-            <article className="glass-card noise-overlay relative p-4 sm:p-5 transition-all duration-500 ease-out group-hover:border-emerald-500/20">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <article className="glass-card noise-overlay relative p-4 sm:p-5 transition-all duration-500 ease-out group-hover:border-sky-500/20">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm sm:text-base font-medium text-neutral-200 group-hover:text-white transition-colors duration-300">
-                    {t.home.aduesSport}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-[10px] font-medium tracking-wide text-emerald-400/70 uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
-                    {t.home.live}
-                  </span>
-                </div>
+                <span className="block text-sm sm:text-base font-medium text-neutral-200 group-hover:text-white transition-colors duration-300">
+                  {t.home.aduesSport}
+                </span>
                 <p className="mt-1.5 text-xs text-neutral-500">sport.adues.org.ar</p>
                 <p className="mt-2 text-xs text-neutral-600">{t.home.aduesSportDesc}</p>
               </div>
@@ -145,8 +105,43 @@ export default async function Page({
         </div>
       </div>
 
+      {/* Clients — systems built for clients */}
+      <div className="relative z-10 animate-enter-up mb-16 sm:mb-20" style={{ animationDelay: '240ms' }}>
+        <div className="mb-5 flex items-center gap-3">
+          <div className="h-px w-8 bg-gradient-to-r from-emerald-500 to-transparent" />
+          <h2 className="text-xs font-medium tracking-[0.2em] text-emerald-400/80 uppercase">
+            {t.home.clients}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a
+            href="https://onfit.com.ar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block sm:col-span-2"
+          >
+            <article className="glass-card noise-overlay relative p-5 sm:p-6 transition-all duration-500 ease-out group-hover:border-emerald-500/20">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="flex items-center justify-between">
+                  <span className="text-base sm:text-lg font-semibold text-neutral-200 group-hover:text-white transition-colors duration-300">
+                    {t.home.onfit}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-[10px] font-medium tracking-wide text-emerald-400/70 uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
+                    {t.home.live}
+                  </span>
+                </div>
+                <p className="mt-1 text-xs text-neutral-500">onfit.com.ar</p>
+                <p className="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">{t.home.onFitDesc}</p>
+              </div>
+            </article>
+          </a>
+        </div>
+      </div>
+
       {/* Recent Posts Section */}
-      <div className="relative z-10 animate-enter-up" style={{ animationDelay: '240ms' }}>
+      <div className="relative z-10 animate-enter-up" style={{ animationDelay: '280ms' }}>
         <div className="mb-6 flex items-center gap-3">
           <div className="h-px w-8 bg-gradient-to-r from-emerald-500 to-transparent" />
           <h2 className="text-xs font-medium tracking-[0.2em] text-emerald-400/80 uppercase">

@@ -6,28 +6,29 @@ In progress
 
 ## Current task
 
-Premium UX review applied end-to-end
+Done — Projects vs Clients split. Sky palette for Projects, emerald for Clients. No badges on Projects (color + title differentiate).
 
-## Last progress (premium-frontend-design review pass)
+## Last progress
 
-- Container: max-w-xl → max-w-2xl + lg:px-8 for more breathing room
-- Hero tagline: text-xs/text-neutral-500 → text-sm/text-neutral-400 (more visible)
-- Hero bio: new line added in i18n (en + es) — "Builder. I make software for agro, fitness, and music."
-- Portfolio cards: added descriptions to OnFit and ADUES Sport via i18n
-- Blog cards: fixed inverted title/date order (removed sm:order-2 on title, date now always after title)
-- i18n: added `bio`, `onFitDesc`, `aduesSportDesc`, `recentPosts` keys to both langs
-- i18n: "My Blog" → "Writing" (en), blog page label now uses `t.blog.title` (no hardcode)
-- i18n: "Recent Posts" / "Artículos Recientes" now from i18n key (no hardcode in page.tsx)
-- Footer: removed duplicate GitHub link (already in nav)
+- Split single Portfolio section into two: **Building** (amber badge) + **Portfolio** (emerald "Live" badge)
+- **Building** (team member, in active dev): Rumen360 + Adues Sport — 2-col grid, "In progress" / "En curso" badge
+- **Portfolio** (launched, built end-to-end): OnFit — full-width featured card (user plans to add more)
+- Updated i18n descriptions:
+  - Rumen360 → "Cattle management platform for feedlots" / "Plataforma de gestión ganadera para feedlots"
+  - Adues Sport → "Sports management system for clubs and federations" / "Sistema de gestión deportiva para clubes y federaciones"
+  - OnFit → "Suite for gym chains: web, backoffice, sales landings, chatbots, and payment processor" / "Suite para cadenas de gimnasios: web, backoffice, landings de venta, chatbots y procesadora de pagos"
+- New i18n keys: `building`, `inProgress` (both langs)
+- Animation delays shifted: Building 200ms → Portfolio 240ms → Recent Posts 280ms
 - Build passes clean
 
 ## Next steps
 
-1. Visual review on localhost (en + es)
-2. Mobile responsiveness check
-3. Commit and deploy when satisfied
+1. Visual review on localhost (en + es) — mobile + desktop
+2. Add more projects to Portfolio section as they launch
+3. Commit when satisfied
 
 ## Notes
 
-- Files modified: `app/layout.tsx`, `app/i18n.ts`, `app/[lang]/page.tsx`, `app/[lang]/blog/page.tsx`, `app/components/posts.tsx`, `app/components/footer.tsx`
-- User prefers the original press card layout (stacked, with previews) — kept as-is
+- Files modified: `app/i18n.ts`, `app/[lang]/page.tsx`
+- Amber palette for Building (`amber-400/80` badge dot, `amber-500/20` hover border)
+- Emerald palette stays for Portfolio (same as before)
