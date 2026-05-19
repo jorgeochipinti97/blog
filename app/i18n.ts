@@ -49,9 +49,9 @@ export const messages = {
       rumen360: 'Rumen360',
       rumen360Desc: 'Cattle management platform for feedlots',
       cmsAiBoosted: 'CMS AI Boosted',
-      cmsAiBoostedDesc: 'CMS wired to an AI agent that drafts articles and assists journalists with SEO/GEO, plus WhatsApp connectivity',
+      cmsAiBoostedDesc: 'CMS with AI tools that help journalists with writing, SEO and GEO, plus WhatsApp connectivity',
       multimediosCanning: 'Multimedios Canning',
-      multimediosCanningDesc: 'News network — flagship outlet Diario Canning',
+      multimediosCanningDesc: 'News network',
       recentPosts: 'Recent Posts',
     },
     blog: {
@@ -104,9 +104,9 @@ export const messages = {
       rumen360: 'Rumen360',
       rumen360Desc: 'Plataforma de gestión ganadera para feedlots',
       cmsAiBoosted: 'CMS AI Boosted',
-      cmsAiBoostedDesc: 'CMS conectado a un agente IA que redacta artículos y asiste a periodistas en SEO/GEO, con conectividad por WhatsApp',
+      cmsAiBoostedDesc: 'CMS con herramientas de IA que ayudan a periodistas en redacción, SEO y GEO, con conectividad por WhatsApp',
       multimediosCanning: 'Multimedios Canning',
-      multimediosCanningDesc: 'Red de medios — portal principal Diario Canning',
+      multimediosCanningDesc: 'Red de medios',
       recentPosts: 'Artículos Recientes',
     },
     blog: {
