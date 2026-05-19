@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
-import { withLang, type Lang } from 'app/i18n'
+import { messages, withLang, type Lang } from 'app/i18n'
 
 export function BlogPosts({ lang }: { lang: Lang }) {
   let allBlogs = getBlogPosts(lang)
@@ -65,7 +65,7 @@ export function BlogPosts({ lang }: { lang: Lang }) {
             </svg>
           </div>
           <p className="text-neutral-400 text-xs sm:text-sm">
-            {lang === 'es' ? 'No hay artículos aún. Vuelve pronto.' : 'No posts yet. Check back soon.'}
+            {messages[lang].posts.empty}
           </p>
         </div>
       )}

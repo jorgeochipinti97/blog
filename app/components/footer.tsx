@@ -42,6 +42,30 @@ export default function Footer({ lang }: { lang: Lang }) {
               <ArrowIcon />
             </a>
           </li>
+          <li>
+            <a
+              className="group flex items-center gap-2 text-neutral-500 hover:text-emerald-400 transition-colors duration-300"
+              rel="noopener noreferrer"
+              target="_blank"
+              href={site.links.instagram}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/40 group-hover:bg-emerald-400 transition-colors duration-300" />
+              {t.footer.instagram}
+              <ArrowIcon />
+            </a>
+          </li>
+          <li>
+            <a
+              className="group flex items-center gap-2 text-neutral-500 hover:text-emerald-400 transition-colors duration-300"
+              rel="noopener noreferrer"
+              target="_blank"
+              href={site.links.whatsapp}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/40 group-hover:bg-emerald-400 transition-colors duration-300" />
+              {t.footer.whatsapp}
+              <ArrowIcon />
+            </a>
+          </li>
         </ul>
 
         {/* Copyright / Brand */}

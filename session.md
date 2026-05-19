@@ -6,7 +6,11 @@ In progress
 
 ## Current task
 
-Done — Projects vs Clients split. Sky palette for Projects, emerald for Clients. No badges on Projects (color + title differentiate).
+Done — Added project "CMS AI Boosted" (Projects section, full-width, no link by user request) + client "Multimedios Canning" → diariocanning.com (Clients section, Live badge). i18n keys cmsAiBoosted/Desc + multimediosCanning/Desc in en+es. tsc clean.
+
+Prev — Added Instagram (jorgeochipinti_) + WhatsApp (5491126932788) links to footer. site.ts links, i18n footer keys (en+es), footer.tsx. tsc clean.
+
+Prev — Projects vs Clients split. Sky palette for Projects, emerald for Clients. No badges on Projects (color + title differentiate).
 
 ## Last progress
 

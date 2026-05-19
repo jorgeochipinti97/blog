@@ -26,10 +26,10 @@ export async function generateMetadata({
       default: site.name,
       template: `%s | ${site.name}`,
     },
-    description: site.description,
+    description: site.description[lang],
     openGraph: {
       title: site.name,
-      description: site.description,
+      description: site.description[lang],
       url: site.url,
       siteName: site.name,
       locale,

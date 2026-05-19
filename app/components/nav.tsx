@@ -152,7 +152,7 @@ function NavbarContent() {
             <RadioGroup
               value={lang}
               onValueChange={onLangChange}
-              aria-label="Language"
+              aria-label={t.nav.language}
               className="relative grid grid-cols-2 gap-0"
             >
               <RadioGroupItem value="en">EN</RadioGroupItem>

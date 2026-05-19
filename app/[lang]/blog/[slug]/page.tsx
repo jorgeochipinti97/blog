@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { AuroraBackground } from 'app/components/aurora-background'
 import { CustomMDX } from 'app/components/mdx'
+import { RelatedPosts } from 'app/components/related-posts'
 import {
   formatDate,
   getBlogPosts,
@@ -137,7 +138,7 @@ export default async function Blog({
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
         </svg>
-        <span>{lang === 'es' ? 'Volver al blog' : 'Back to blog'}</span>
+        <span>{t.blog.backToBlog}</span>
       </Link>
 
       {/* Article Header */}
@@ -149,7 +150,7 @@ export default async function Blog({
         >
           <span className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] sm:text-xs font-medium text-emerald-400">
             <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
-            {lang === 'es' ? 'Artículo' : 'Article'}
+            {t.blog.article}
           </span>
         </div>
 
@@ -199,7 +200,7 @@ export default async function Blog({
                 d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <span>{lang === 'es' ? '5 min lectura' : '5 min read'}</span>
+            <span>{t.blog.readTime}</span>
           </div>
         </div>
 
@@ -217,6 +218,9 @@ export default async function Blog({
       >
         <CustomMDX source={post.content} />
       </article>
+
+      {/* Related Posts */}
+      <RelatedPosts currentSlug={slug} lang={lang} />
 
       {/* Bottom Navigation */}
       <footer
@@ -236,7 +240,7 @@ export default async function Blog({
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
           </svg>
-          <span>{lang === 'es' ? 'Ver todos los artículos' : 'View all articles'}</span>
+          <span>{t.blog.viewAll}</span>
         </Link>
       </footer>
     </section>

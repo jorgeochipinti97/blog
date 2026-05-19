@@ -13,6 +13,7 @@ export async function GET(request: Request) {
   const url = new URL(request.url)
   const title = url.searchParams.get('title') || 'Jorge Ochipinti'
   const isDefault = !url.searchParams.get('title')
+  const lang = url.searchParams.get('lang') || 'es'
 
   // Adjust font size based on title length for optimal readability
   const titleLength = title.length
@@ -169,7 +170,7 @@ export async function GET(request: Request) {
               letterSpacing: '0.02em',
             }}
           >
-            {isDefault ? 'Tech + entrepreneurship' : 'jorgeochipinti.com'}
+            {isDefault ? (lang === 'es' ? 'Tecnología + emprendedurismo' : 'Tech + entrepreneurship') : 'jorgeochipinti.com'}
           </span>
 
           {/* Decorative badge */}
@@ -200,7 +201,7 @@ export async function GET(request: Request) {
                 letterSpacing: '0.01em',
               }}
             >
-              {isDefault ? 'Blog' : 'Read article'}
+              {isDefault ? 'Blog' : (lang === 'es' ? 'Leer artículo' : 'Read article')}
             </span>
           </div>
         </div>

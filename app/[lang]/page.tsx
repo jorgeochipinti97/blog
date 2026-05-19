@@ -102,6 +102,14 @@ export default async function Page({
               </div>
             </article>
           </a>
+          <article className="glass-card noise-overlay relative p-4 sm:p-5 sm:col-span-2">
+            <div className="relative z-10">
+              <span className="block text-sm sm:text-base font-medium text-neutral-200">
+                {t.home.cmsAiBoosted}
+              </span>
+              <p className="mt-2 text-xs text-neutral-600">{t.home.cmsAiBoostedDesc}</p>
+            </div>
+          </article>
         </div>
       </div>
 
@@ -134,6 +142,29 @@ export default async function Page({
                 </div>
                 <p className="mt-1 text-xs text-neutral-500">onfit.com.ar</p>
                 <p className="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">{t.home.onFitDesc}</p>
+              </div>
+            </article>
+          </a>
+          <a
+            href="https://diariocanning.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block sm:col-span-2"
+          >
+            <article className="glass-card noise-overlay relative p-5 sm:p-6 transition-all duration-500 ease-out group-hover:border-emerald-500/20">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="flex items-center justify-between">
+                  <span className="text-base sm:text-lg font-semibold text-neutral-200 group-hover:text-white transition-colors duration-300">
+                    {t.home.multimediosCanning}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-[10px] font-medium tracking-wide text-emerald-400/70 uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
+                    {t.home.live}
+                  </span>
+                </div>
+                <p className="mt-1 text-xs text-neutral-500">diariocanning.com</p>
+                <p className="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">{t.home.multimediosCanningDesc}</p>
               </div>
             </article>
           </a>

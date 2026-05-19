@@ -9,6 +9,7 @@ type Metadata = {
   summary: string
   image?: string
   lang?: Lang
+  tags?: string[]
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -29,6 +30,11 @@ function parseFrontmatter(fileContent: string) {
       if (isLang(value)) {
         metadata.lang = value
       }
+      return
+    }
+
+    if (k === 'tags') {
+      metadata.tags = value.split(',').map((t) => t.trim()).filter(Boolean)
       return
     }
 
@@ -94,6 +100,40 @@ export function getBlogPosts(lang?: Lang): BlogPost[] {
   }
 
   return posts.filter((post) => getPostVisibleLangs(post).includes(lang))
+}
+
+export function getRelatedPosts(
+  currentSlug: string,
+  lang: Lang,
+  limit: number = 3
+): BlogPost[] {
+  let allPosts = getBlogPosts(lang)
+  let currentPost = allPosts.find((p) => p.slug === currentSlug)
+
+  if (!currentPost || !currentPost.metadata.tags?.length) {
+    return []
+  }
+
+  let currentTags = new Set(currentPost.metadata.tags)
+
+  return allPosts
+    .filter((p) => p.slug !== currentSlug)
+    .map((post) => {
+      let sharedCount = (post.metadata.tags ?? []).filter((tag) =>
+        currentTags.has(tag)
+      ).length
+      return { post, sharedCount }
+    })
+    .filter((item) => item.sharedCount > 0)
+    .sort((a, b) => {
+      if (b.sharedCount !== a.sharedCount) return b.sharedCount - a.sharedCount
+      return (
+        new Date(b.post.metadata.publishedAt).getTime() -
+        new Date(a.post.metadata.publishedAt).getTime()
+      )
+    })
+    .slice(0, limit)
+    .map((item) => item.post)
 }
 
 export function formatDate(date: string, lang: Lang, includeRelative = false) {

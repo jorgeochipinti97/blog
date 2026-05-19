@@ -40,6 +40,40 @@ app/
 └── page.tsx          # Homepage
 ```
 
+## Managing the Homepage
+
+The homepage (`app/[lang]/page.tsx`) has 4 sections in order:
+
+### 1. Hero (título, intro, bio)
+Edit the texts in `app/i18n.ts` → `messages.en.home` / `messages.es.home`:
+- `title` — nombre principal
+- `intro` — frase corta debajo del título
+- `bio` — descripción personal
+
+### 2. Prensa (Press Mentions)
+Edit the array `pressItems` in `app/components/press-mentions.tsx`:
+```ts
+{
+  outlet: 'Forbes Argentina',        // nombre del medio
+  title: 'Título de la nota...',     // título del artículo
+  url: 'https://...',                // link a la nota
+}
+```
+Add or remove objects from the array. The "Read article" / "Leer artículo" label comes from i18n (`home.readArticle`).
+
+### 3. Portfolio (Active Projects)
+Edit directly in `app/[lang]/page.tsx`. Each project is an `<a>` block with:
+- `href` — URL del proyecto
+- Name, description, and domain — all pulled from i18n keys (`home.onfit`, `home.onFitDesc`, etc.)
+- To add a new project: duplicate one of the existing `<a>` blocks, add corresponding i18n keys in `app/i18n.ts` for both `en` and `es`
+- Rumen360 uses `sm:col-span-2` to span full width (featured). Regular projects use single column.
+
+### 4. Recent Posts
+Automatic — shows the latest blog posts. No config needed.
+
+### Translations (i18n)
+All homepage text lives in `app/i18n.ts` under `messages.en.home` and `messages.es.home`. **Never hardcode text directly in components** — always add keys to both languages in i18n.
+
 ## Adding Blog Posts
 
 Create `.mdx` files in `app/blog/posts/` with frontmatter:
