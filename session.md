@@ -6,7 +6,9 @@ In progress
 
 ## Current task
 
-Done — Added project "CMS AI Boosted" (Projects section, full-width, no link by user request) + client "Multimedios Canning" → diariocanning.com (Clients section, Live badge). i18n keys cmsAiBoosted/Desc + multimediosCanning/Desc in en+es. tsc clean.
+Done — Added project "Katch" → katch.com.ar (Projects section). Logistics platform with real-time geolocation, optimized routes and pickup points. i18n keys katch/katchDesc in en+es. Projects grid now uniform 2x2 (removed sm:col-span-2 from Katch + CMS AI Boosted) — single col on mobile, 2 cols desktop. tsc clean.
+
+Prev — Added project "CMS AI Boosted" (Projects section, full-width, no link by user request) + client "Multimedios Canning" → diariocanning.com (Clients section, Live badge). i18n keys cmsAiBoosted/Desc + multimediosCanning/Desc in en+es. tsc clean.
 
 Prev — Added Instagram (jorgeochipinti_) + WhatsApp (5491126932788) links to footer. site.ts links, i18n footer keys (en+es), footer.tsx. tsc clean.
 

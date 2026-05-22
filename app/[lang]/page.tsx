@@ -102,7 +102,24 @@ export default async function Page({
               </div>
             </article>
           </a>
-          <article className="glass-card noise-overlay relative p-4 sm:p-5 sm:col-span-2">
+          <a
+            href="https://katch.com.ar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+          >
+            <article className="glass-card noise-overlay relative p-4 sm:p-5 transition-all duration-500 ease-out group-hover:border-sky-500/20">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <span className="block text-sm sm:text-base font-medium text-neutral-200 group-hover:text-white transition-colors duration-300">
+                  {t.home.katch}
+                </span>
+                <p className="mt-1.5 text-xs text-neutral-500">katch.com.ar</p>
+                <p className="mt-2 text-xs text-neutral-600">{t.home.katchDesc}</p>
+              </div>
+            </article>
+          </a>
+          <article className="glass-card noise-overlay relative p-4 sm:p-5">
             <div className="relative z-10">
               <span className="block text-sm sm:text-base font-medium text-neutral-200">
                 {t.home.cmsAiBoosted}
