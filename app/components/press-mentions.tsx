@@ -4,7 +4,7 @@ export const pressItems = [
   {
     outlet: 'Diario Canning',
     title: 'Diario Canning estrenó sistema biométrico para el control del juego',
-    url: 'https://www.diariocanning.com/deportes/diario-canning-estreno-el-sistema-de-biomotricidad-para-el-control-del-juego',
+    url: 'https://www.eldiariosur.com/canning/2026/1/24/adues-sport-diario-canning-estreno-el-sistema-de-biomotricidad-para-el-control-del-juego-77352.html',
   },
   {
     outlet: 'Forbes Argentina',
