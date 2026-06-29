@@ -1,56 +1,72 @@
 ---
-title: 'ESP32, microphone, and a server: how we built an AI avatar'
+title: 'From zero electronics knowledge to an AI kiosk for a real shopping center'
 publishedAt: '2026-06-29'
-summary: 'How we wired an ESP32 board with an I2S microphone to a server to build a conversational AI avatar — and the three contexts we deployed it in.'
+summary: 'How I built a voice assistant with Claude as the brain and a full-screen reactive avatar, starting from knowing nothing about electronics, on a real case: Toscas Shopping.'
 tags: 'hardware, ai, esp32, avatar'
 image: '/esp32-avatar.jpg'
 ---
 
-I'm not an electronics engineer. Never was. This is the first thing I ever wired.
+I didn't know how to solder. I didn't know what a breadboard rail was. I ended the session with a working shopping kiosk — Claude as the brain, a reactive full-screen avatar, real store data.
 
-A device the size of a credit card listens, sends voice to a server, and makes an AI avatar speak. Total physical components: two.
+Here's what I built and how it works.
 
 ## The hardware
 
-An ESP32-WROOM-32 and an INMP441 microphone. The INMP441 is digital, speaks I2S natively, and connects with no resistors or extra capacitors.
+The Keyestudio "Xiaozhi" kit comes with an ESP32-S3, an INMP441 microphone (I2S), a MAX98357A amplifier with speaker, and an LCD screen. It came pre-flashed — I didn't write a single line of C++.
 
-| INMP441 | ESP32   |
-|---------|---------|
-| VDD     | 3.3V    |
-| GND     | GND     |
-| SD      | GPIO 34 |
-| SCK     | GPIO 26 |
-| WS      | GPIO 25 |
-| L/R     | GND     |
+I assembled everything on a breadboard. First problem: an invisible bad contact on the microphone. The firmware ran fine, but the mic captured nothing. Fix: reposition the module, unplug and replug so the I2S reinitializes. No sophisticated debugging. Just physics.
 
-L/R tied to GND forces the left channel. Enough for voice.
+## The architecture
 
-## The flow
+```
+[ Person speaks ]
+      │ mic I2S
+      ▼
+   ESP32-S3  ──WebSocket──►  Docker server (Mac)
+                               VAD → STT → LLM → TTS
+             ◄──────────────  audio response
+                                    │ docker logs -f
+                                    ▼
+                           SSE bridge (Next.js)
+                                    │
+                                    ▼
+                           Full-screen kiosk (Next.js)
+                           face + store cards
+```
 
-The ESP32 captures audio in 512-sample buffers: 16kHz, mono, 16-bit. That stream goes over WebSocket to a Node.js server.
+The ESP32 does one thing: capture voice and play audio back. The brain runs in a Docker server on the Mac. The avatar is a separate Next.js app.
 
-The server does three things in sequence:
+That last decision was the most important one in the project.
 
-1. **STT** — converts audio to text (Whisper)
-2. **LLM** — generates a response based on the loaded context
-3. **TTS + avatar** — synthesizes voice and animates the avatar
+## The brain and the screen
 
-The avatar renders on a separate display — a tablet, a kiosk, or a monitor. The ESP32 only captures and transmits. Cheap hardware, server-side logic you can update without touching the device.
+**Voice stack:**
+- **VAD:** SileroVAD (local)
+- **STT:** OpenAI Whisper (`gpt-4o-mini-transcribe`) — the local STT doesn't support Spanish
+- **LLM:** Claude `claude-haiku-4-5` via Anthropic's OpenAI-compatible endpoint
+- **TTS:** OpenAI `tts-1`, voice `nova`, speed 1.2
 
-## Three contexts, same board
+One problem that took a while to understand: Claude was responding in Chinese. The firmware's default prompt was in Mandarin, and the Spanish voice can't read Chinese. Switching the prompt to Spanish fixed the language and the TTS at the same time.
 
-**Children**: the LLM receives instructions to use simple language and restrict topics. The avatar has a fixed personality — a character, a tutor. Latency from end of speech to avatar response: 1.2-1.8 seconds.
+**The avatar (Next.js + Tailwind v4 + framer-motion):**
+A face with eyes and mouth, 4 states: idle, listening, thinking, speaking. Spring animations so no transition ever looks abrupt. The state doesn't come from the server — it comes from parsing Docker logs in real time, via SSE.
 
-**Shopping center reception**: the avatar knows the store map, hours, and active promotions. No touchscreen, no assigned staff. Works in moderate background noise — the INMP441 has built-in far-field noise cancellation.
+When Claude recommends a store, the avatar shows its card: real logo, real photo, floor number, and category. Up to 3 cards, with a staggered entrance animation.
 
-**Business**: acts as a front-desk receptionist or internal assistant. Takes messages, answers FAQs, routes queries. The LLM context changes per client; the hardware doesn't.
+## The real case: Toscas Shopping
 
-## What we learned
+This wasn't a demo. The `toscas` persona knows all **91 real stores** in Toscas Shopping (name, category, photo, logo, floor). I scraped them with `curl` because the website blocked normal scrapers. The categories were generic (Clothing = apparel + footwear + lingerie), so I researched each store with 5 parallel agents and added subcategory, products, and gender tags. That lets Claude recommend precisely: "sneakers" goes to footwear, not home goods.
 
-The bottleneck is not the board or the microphone. It's the accumulated latency across STT, LLM, and TTS. With all three via API, total time runs 2.5-3 seconds. With local STT (small Whisper model on the server) it drops below 1.5 seconds in most cases.
+The assistant greets, asks what the person is looking for, recommends with floor number, and wraps up.
 
-A cheap analog microphone breaks speech recognition. The INMP441 at 3.3V works reliably up to 2 meters in moderate background noise.
+## What I learned
+
+The LCD on the ESP32 wasn't viable without recompiling the firmware in C++. The large external screen (web full-screen) gave me full control, fast iteration, and is the real front of the kiosk in production.
+
+Latency is dominated by the STT → LLM → TTS chain, not the hardware. With all three via API it runs around 2-3 seconds.
 
 ---
 
-Building something similar? Reach out.
+The server code isn't ours. Neither is the firmware. What we built is the layer that connects them: the personas, the data, the avatar, the business logic.
+
+That's the product.
