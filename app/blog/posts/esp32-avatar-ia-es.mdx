@@ -1,0 +1,58 @@
+---
+title: 'ESP32, micrófono y un servidor: así construimos un avatar con IA'
+publishedAt: '2026-06-29'
+summary: 'Cómo conectamos una placa ESP32 con un micrófono I2S a un servidor para construir un avatar conversacional con IA, y los tres contextos donde lo usamos.'
+tags: 'hardware, ia, esp32, avatar'
+image: '/esp32-avatar.jpg'
+---
+
+No soy electrónico. Nunca lo fui. Esto es lo primero que cableé en mi vida.
+
+Un dispositivo del tamaño de una tarjeta de crédito escucha, procesa la voz en un servidor y hace hablar a un avatar. Total de componentes físicos: dos.
+
+## El hardware
+
+Una ESP32-WROOM-32 y un micrófono INMP441. El INMP441 es digital, habla I2S nativo y se conecta sin resistencias ni capacitores extra.
+
+| INMP441 | ESP32   |
+|---------|---------|
+| VDD     | 3.3V    |
+| GND     | GND     |
+| SD      | GPIO 34 |
+| SCK     | GPIO 26 |
+| WS      | GPIO 25 |
+| L/R     | GND     |
+
+El pin L/R en GND fuerza el canal izquierdo. Suficiente para voz.
+
+## El flujo
+
+La ESP32 captura audio en buffers de 512 muestras: 16kHz, mono, 16 bits. Eso va por WebSocket a un servidor Node.js.
+
+El servidor hace tres cosas en secuencia:
+
+1. **STT** — convierte el audio a texto (Whisper)
+2. **LLM** — genera la respuesta según el contexto cargado
+3. **TTS + avatar** — sintetiza voz y anima el avatar
+
+El avatar se muestra en una pantalla separada — puede ser una tablet, un kiosco o un monitor. La ESP32 solo captura y transmite. Hardware barato, servidor que se puede actualizar sin tocar el dispositivo.
+
+## Los tres contextos
+
+La misma placa, tres configuraciones de contexto distintas:
+
+**Niños**: el LLM recibe instrucciones para usar lenguaje simple y limitar los temas. El avatar tiene una personalidad fija — un personaje, un tutor. La latencia ronda 1.2-1.8 segundos desde que el niño termina de hablar.
+
+**Shopping**: el avatar conoce el mapa del local, los horarios y las promociones activas. Sin pantalla táctil, sin empleado asignado. Funciona con ruido de fondo moderado — el INMP441 tiene cancelación de ruido de campo lejano integrada.
+
+**Negocios**: actúa como recepcionista o asistente interno. Toma mensajes, responde preguntas frecuentes, deriva consultas. El contexto del LLM cambia por cliente; el hardware no.
+
+## Lo que aprendimos
+
+El cuello de botella no es la placa ni el micrófono. Es la latencia acumulada entre STT, LLM y TTS. Con los tres por API, el total ronda los 2.5-3 segundos. Con STT local (Whisper pequeño corriendo en el servidor) baja a menos de 1.5 segundos en la mayoría de los casos.
+
+Un micrófono analógico barato arruina el reconocimiento de voz. El INMP441 a 3.3V funciona bien hasta a 2 metros con ruido de fondo moderado.
+
+---
+
+Si estás construyendo algo parecido, escribime.

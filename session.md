@@ -6,7 +6,11 @@ In progress
 
 ## Current task
 
-Done — Added project "Katch" → katch.com.ar (Projects section). Logistics platform with real-time geolocation, optimized routes and pickup points. i18n keys katch/katchDesc in en+es. Projects grid now uniform 2x2 (removed sm:col-span-2 from Katch + CMS AI Boosted) — single col on mobile, 2 cols desktop. tsc clean.
+Done — Added "Tribuna" to Projects section. Sports management media platform. i18n keys tribuna/tribunaDesc in en+es. Static card (no URL). Grid now 5 items (3 rows on mobile, 2x2+1 on desktop). tsc clean.
+
+Prev — Updated biomotricidad press item URL → eldiariosur source (was diariocanning.com). Committed + pushed (b5c740a).
+
+Prev — Added project "Katch" → katch.com.ar (Projects section). Logistics platform with real-time geolocation, optimized routes and pickup points. i18n keys katch/katchDesc in en+es. Projects grid now uniform 2x2 (removed sm:col-span-2 from Katch + CMS AI Boosted) — single col on mobile, 2 cols desktop. tsc clean.
 
 Prev — Added project "CMS AI Boosted" (Projects section, full-width, no link by user request) + client "Multimedios Canning" → diariocanning.com (Clients section, Live badge). i18n keys cmsAiBoosted/Desc + multimediosCanning/Desc in en+es. tsc clean.
 
