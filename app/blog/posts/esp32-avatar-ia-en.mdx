@@ -1,7 +1,7 @@
 ---
-title: 'From zero electronics knowledge to an AI kiosk for a real shopping center'
+title: 'A weekend with an ESP32'
 publishedAt: '2026-06-29'
-summary: 'How I built a voice assistant with Claude as the brain and a full-screen reactive avatar, starting from knowing nothing about electronics, on a real case: Toscas Shopping.'
+summary: 'How I built a voice assistant with Claude as the brain and a full-screen reactive avatar, starting from knowing nothing about electronics, on a real case at a shopping center.'
 tags: 'hardware, ai, esp32, avatar'
 image: '/esp32-avatar.jpg'
 ---
@@ -55,17 +55,19 @@ A face with eyes and mouth, 4 states: idle, listening, thinking, speaking. Sprin
 
 When Claude recommends a store, the avatar shows its card: real logo, real photo, floor number, and category. Up to 3 cards, with a staggered entrance animation.
 
-## The real case: Toscas Shopping
+## The real case
 
-This wasn't a demo. The `toscas` persona knows all **91 real stores** in Toscas Shopping (name, category, photo, logo, floor). I scraped them with `curl` because the website blocked normal scrapers. The categories were generic (Clothing = apparel + footwear + lingerie), so I researched each store with 5 parallel agents and added subcategory, products, and gender tags. That lets Claude recommend precisely: "sneakers" goes to footwear, not home goods.
+This wasn't a demo. The persona knows all **91 real stores** in a real shopping center (name, category, photo, logo, floor). I scraped them with `curl` because the website blocked normal scrapers. The categories were generic (Clothing = apparel + footwear + lingerie), so I researched each store with 5 parallel agents and added subcategory, products, and gender tags. That lets Claude recommend precisely: "sneakers" goes to footwear, not home goods.
 
 The assistant greets, asks what the person is looking for, recommends with floor number, and wraps up.
 
 ## What I learned
 
-The LCD on the ESP32 wasn't viable without recompiling the firmware in C++. The large external screen (web full-screen) gave me full control, fast iteration, and is the real front of the kiosk in production.
+The LCD on the ESP32 wasn't viable without recompiling the firmware in C++. The large external screen (web full-screen) gave me full control, fast iteration, and is the real front of the device in production.
 
 Latency is dominated by the STT → LLM → TTS chain, not the hardware. With all three via API it runs around 2-3 seconds.
+
+Today this is a prototype. We're already working on scaling it.
 
 ---
 
