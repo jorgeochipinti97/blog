@@ -20,10 +20,6 @@ Restricciones duras del autor (respetarlas en cualquier edición futura de este 
 
 Aprendizaje del proceso: escribió varias versiones descartadas por resentimiento (poner la decisión CONTRA las personas: "las personas se mueven", "cuando no haya nadie más"). La versión que funcionó pone la decisión contra el propio ánimo, no contra nadie. La sección de dolor en silencio se descartó entera — cualquier mención al sufrimiento propio le suena a víctima.
 
-Pendiente — decidir si queda o se borra el post previo "Después de elegir" (es+en), escrito antes del pivot de tema.
-
-Prev — Nuevo post personal "Después de elegir" / "After choosing" (es+en), fecha 2026-08-11. Continuación de "Elegir": qué pasa después de elegirte (la duda posterior, la prueba que llega tarde, el silencio). Se apoya solo en hechos ya publicados en "Elegir" y "El arte de fracasar" (startup musical, burnout) — nada inventado. Pendiente: que Jorge revise/ajuste los detalles personales.
-
 Nota — press item de biomotricidad: la URL ya apunta a eldiariosur (`press-mentions.tsx:7`), no había cambio pendiente. Sigue desalineado el `outlet: 'Diario Canning'` vs dominio eldiariosur.com — sin decisión del usuario.
 
 Prev — Added "Tribuna" to Projects section. Sports management media platform. i18n keys tribuna/tribunaDesc in en+es. Static card (no URL). Grid now 5 items (3 rows on mobile, 2x2+1 on desktop). tsc clean.

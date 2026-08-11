@@ -144,6 +144,14 @@ export default async function Page({
               </div>
             </article>
           </a>
+          <article className="glass-card noise-overlay relative p-4 sm:p-5">
+            <div className="relative z-10">
+              <span className="block text-sm sm:text-base font-medium text-neutral-200">
+                {t.home.dublinCloud}
+              </span>
+              <p className="mt-2 text-xs text-neutral-600">{t.home.dublinCloudDesc}</p>
+            </div>
+          </article>
         </div>
       </div>
 
