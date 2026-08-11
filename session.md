@@ -6,7 +6,27 @@ In progress
 
 ## Current task
 
-Done — Added "Tribuna" to Projects section. Sports management media platform. i18n keys tribuna/tribunaDesc in en+es. Static card (no URL). Grid now 5 items (3 rows on mobile, 2x2+1 on desktop). tsc clean.
+Done — Post personal "Tears in Heaven" (es+en), 2026-08-11. Archivos: `tears-in-heaven-es.mdx`, `tears-in-heaven-en.mdx`. Aprobado por Jorge y commiteado.
+
+Tesis: la conducta es el centro. Las emociones son estados que van y vienen; lo que construye es la decisión convertida en regla de comportamiento. Aplica igual a un proyecto y a dos personas.
+
+Restricciones duras del autor (respetarlas en cualquier edición futura de este post o de otros personales):
+- NO nombrar a la persona, el evento, ni el vínculo. NO anclaje temporal.
+- NO cursi ni sentimental. NO rol de víctima. NO resentimiento.
+- NO egolatría — no abrir con logro en primera persona ni cerrar con lección.
+- NO secciones defensivas tipo "lo que esto no es" (el texto explicándose antes de que lo acusen).
+- NO detalles concretos inventados (rechazó "un martes", "hace un año").
+- El título lo elige él: "Tears in Heaven" es decisión suya. NO cambiarlo. Descartados por él o por mí: Cumplir, Sin testigos, Voluntad, Conducta.
+
+Aprendizaje del proceso: escribió varias versiones descartadas por resentimiento (poner la decisión CONTRA las personas: "las personas se mueven", "cuando no haya nadie más"). La versión que funcionó pone la decisión contra el propio ánimo, no contra nadie. La sección de dolor en silencio se descartó entera — cualquier mención al sufrimiento propio le suena a víctima.
+
+Pendiente — decidir si queda o se borra el post previo "Después de elegir" (es+en), escrito antes del pivot de tema.
+
+Prev — Nuevo post personal "Después de elegir" / "After choosing" (es+en), fecha 2026-08-11. Continuación de "Elegir": qué pasa después de elegirte (la duda posterior, la prueba que llega tarde, el silencio). Se apoya solo en hechos ya publicados en "Elegir" y "El arte de fracasar" (startup musical, burnout) — nada inventado. Pendiente: que Jorge revise/ajuste los detalles personales.
+
+Nota — press item de biomotricidad: la URL ya apunta a eldiariosur (`press-mentions.tsx:7`), no había cambio pendiente. Sigue desalineado el `outlet: 'Diario Canning'` vs dominio eldiariosur.com — sin decisión del usuario.
+
+Prev — Added "Tribuna" to Projects section. Sports management media platform. i18n keys tribuna/tribunaDesc in en+es. Static card (no URL). Grid now 5 items (3 rows on mobile, 2x2+1 on desktop). tsc clean.
 
 Prev — Updated biomotricidad press item URL → eldiariosur source (was diariocanning.com). Committed + pushed (b5c740a).
 
