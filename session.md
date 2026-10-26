@@ -58,3 +58,7 @@ Prev — Projects vs Clients split. Sky palette for Projects, emerald for Client
 - Files modified: `app/i18n.ts`, `app/[lang]/page.tsx`
 - Amber palette for Building (`amber-400/80` badge dot, `amber-500/20` hover border)
 - Emerald palette stays for Portfolio (same as before)
+
+## Log
+
+- 2026-10-26 — Post "Rumen360: mil productores" (es+en: rumen360-mil-productores-*.mdx) · card Racing Sur → racingsur.com en Projects (i18n racingSur/racingSurDesc). tsc OK, sin commitear. Next: revisión visual + commit.
